@@ -7,11 +7,11 @@ const projects = [{
   category: 'Web Development',
   github: 'https://github.com/DhruvRupala/Excel-Analytics-Web-App'
 }, {
-  title: 'Blogging Web App',
-  description: 'Full-featured content publishing platform with JWT authentication, admin dashboard, and responsive UI. Includes user management, post creation, and comment system.',
+  title: 'ESports Tournament Registration Platform',
+  description: 'A Competitive ESports Tournament Platform for Player Registration, Match Participation, and Prize Distribution.',
   technologies: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'TailwindCSS'],
   category: 'Web Development',
-  github: 'https://github.com/DhruvRupala/BlogSphere'
+  // github: 'https://github.com/DhruvRupala/'
 }];
 export const Portfolio = () => {
   return <section id="portfolio" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-card/30">

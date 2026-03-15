@@ -19,7 +19,7 @@ export const Hero = () => {
             </div>
             
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Bachelor's of Computer Science student at PDEU with a strong interest in Web Development, Databases, Cybersecurity, and AI/ML. Motivated to apply problem-solving skills to real-world projects and meaningful challenges.
+              Bachelor's of Computer Science student at PDEU with a strong interest in Web Development, Databases, Cybersecurity and AI/ML. Motivated to apply problem-solving skills to real-world projects and meaningful challenges.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">

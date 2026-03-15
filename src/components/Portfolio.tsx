@@ -11,7 +11,7 @@ const projects = [{
   description: 'A Competitive ESports Tournament Platform for Player Registration, Match Participation, and Prize Distribution.',
   technologies: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'TailwindCSS'],
   category: 'Web Development',
-  // github: 'https://github.com/DhruvRupala/'
+  github: 'https://github.com/DhruvRupala/
 }];
 export const Portfolio = () => {
   return <section id="portfolio" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-card/30">

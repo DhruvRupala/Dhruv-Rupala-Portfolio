@@ -68,7 +68,8 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav
+    <>
+      <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -128,6 +129,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+      </motion.nav>
 
       {/* Mobile Navigation */}
       <AnimatePresence>
@@ -149,7 +151,7 @@ export const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 w-72 h-full bg-card/95 backdrop-blur-2xl z-50 md:hidden border-l border-border/30 shadow-2xl"
+              className="fixed top-0 right-0 w-72 h-full bg-card/95 backdrop-blur-2xl z-[45] md:hidden border-l border-border/30 shadow-2xl"
             >
               <div className="flex flex-col pt-24 px-6 space-y-2">
                 {navLinks.map((link, index) => (
@@ -174,6 +176,6 @@ export const Navbar = () => {
           </>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 };

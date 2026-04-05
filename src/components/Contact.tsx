@@ -1,179 +1,59 @@
-// import { Mail, Phone, Linkedin, Github, Send } from 'lucide-react';
-// import { Button } from '@/components/ui/button';
-// import { Input } from '@/components/ui/input';
-// import { Textarea } from '@/components/ui/textarea';
-// import { useToast } from '@/hooks/use-toast';
-// import { useState } from 'react';
-
-// export const Contact = () => {
-//   const { toast } = useToast();
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     subject: '',
-//     message: '',
-//   });
-
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     toast({
-//       title: 'Message Sent!',
-//       description: "Thank you for reaching out. I'll get back to you soon.",
-//     });
-//     setFormData({ name: '', email: '', subject: '', message: '' });
-//   };
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   return (
-//     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-card/30">
-//       <div className="container mx-auto max-w-6xl">
-//         <div className="text-center mb-10 sm:mb-12 md:mb-16 animate-fade-in">
-//           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-//             Get In <span className="text-primary">Touch</span>
-//           </h2>
-//           <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full mb-3 sm:mb-4"></div>
-//           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-//             Have a project in mind? Let's work together to bring your ideas to life
-//           </p>
-//         </div>
-
-//         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-//           <div className="space-y-4 sm:space-y-6 md:space-y-8 animate-fade-in">
-//             <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl">
-//               <div className="flex items-center space-x-3 sm:space-x-4">
-//                 <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-//                   <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-//                 </div>
-//                 <div className="min-w-0">
-//                   <h3 className="font-semibold mb-1 text-sm sm:text-base">Email</h3>
-//                   <a
-//                     href="mailto:dhruvrupala1213@gmail.com"
-//                     className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
-//                   >
-//                     dhruvrupala1213@gmail.com
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
-
-//             <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl">
-//               <div className="flex items-center space-x-3 sm:space-x-4">
-//                 <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-//                   <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-//                 </div>
-//                 <div>
-//                   <h3 className="font-semibold mb-1 text-sm sm:text-base">Phone</h3>
-//                   <p className="text-xs sm:text-sm text-muted-foreground">8401722679</p>
-//                 </div>
-//               </div>
-//             </div>
-
-//             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-//               <a
-//                 href="https://www.linkedin.com/in/dhruv-rupala-96191a253/"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="flex-1 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:shadow-glow transition-all duration-300 flex items-center justify-center space-x-2"
-//               >
-//                 <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-//                 <span className="text-sm sm:text-base">LinkedIn</span>
-//               </a>
-//               <a
-//                 href="https://github.com/DhruvRupala"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="flex-1 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:shadow-glow transition-all duration-300 flex items-center justify-center space-x-2"
-//               >
-//                 <Github className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-//                 <span className="text-sm sm:text-base">GitHub</span>
-//               </a>
-//             </div>
-//           </div>
-
-//           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 animate-scale-in">
-//             <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl space-y-3 sm:space-y-4">
-//               <div>
-//                 <Input
-//                   name="name"
-//                   placeholder="Your Name"
-//                   value={formData.name}
-//                   onChange={handleChange}
-//                   required
-//                   className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-//                 />
-//               </div>
-//               <div>
-//                 <Input
-//                   name="email"
-//                   type="email"
-//                   placeholder="Your Email"
-//                   value={formData.email}
-//                   onChange={handleChange}
-//                   required
-//                   className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-//                 />
-//               </div>
-//               <div>
-//                 <Input
-//                   name="subject"
-//                   placeholder="Subject"
-//                   value={formData.subject}
-//                   onChange={handleChange}
-//                   required
-//                   className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-//                 />
-//               </div>
-//               <div>
-//                 <Textarea
-//                   name="message"
-//                   placeholder="Your Message"
-//                   value={formData.message}
-//                   onChange={handleChange}
-//                   required
-//                   rows={5}
-//                   className="bg-background/50 resize-none text-sm sm:text-base"
-//                 />
-//               </div>
-//               <Button type="submit" className="w-full gradient-primary shadow-glow h-10 sm:h-11 text-sm sm:text-base">
-//                 Send Message <Send className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-//               </Button>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-
-
-
-
-
-
-
-
-
-import { Mail, Phone, Linkedin, Github, Send } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Send, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { SectionWrapper } from './SectionWrapper';
 import emailjs from '@emailjs/browser';
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'dhruvrupala1213@gmail.com',
+    href: 'mailto:dhruvrupala1213@gmail.com',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 8401722679',
+    href: 'tel:+918401722679',
+  },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'Gujarat, India',
+    href: null,
+  },
+];
+
+const socialProfiles = [
+  {
+    icon: Linkedin,
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/dhruv-rupala-96191a253/',
+  },
+  {
+    icon: Github,
+    name: 'GitHub',
+    href: 'https://github.com/DhruvRupala',
+  },
+];
 
 export const Contact = () => {
   const { toast } = useToast();
+  const { ref: leftRef, isInView: leftInView } = useScrollReveal();
+  const { ref: rightRef, isInView: rightInView } = useScrollReveal();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -182,19 +62,19 @@ export const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_h6hpncb',
-        'template_xb1jobv',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        't9p9jgOW_Uw3KBxcr'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       toast({
-        title: 'Message Sent!',
+        title: '✅ Message Sent!',
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -210,127 +90,140 @@ export const Contact = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-card/30">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16 animate-fade-in">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-            Get In <span className="text-primary">Touch</span>
-          </h2>
-          <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full mb-3 sm:mb-4"></div>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-            Have a project in mind? Let's work together to bring your ideas to life
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-          <div className="space-y-4 sm:space-y-6 md:space-y-8 animate-fade-in">
-            <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl">
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+    <SectionWrapper
+      id="contact"
+      title="Get In"
+      titleAccent="Touch"
+      subtitle="Have a project in mind? Let's work together to bring your ideas to life"
+      showBackground
+    >
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 max-w-6xl mx-auto">
+        {/* Left: Contact Info */}
+        <motion.div
+          ref={leftRef}
+          className="space-y-5"
+          initial={{ opacity: 0, x: -40 }}
+          animate={leftInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          {contactInfo.map((info) => (
+            <div
+              key={info.label}
+              className="glass-card-hover p-5 rounded-2xl"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 flex-shrink-0">
+                  <info.icon className="h-5 w-5 text-primary" />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-semibold mb-1 text-sm sm:text-base">Email</h3>
-                  <a
-                    href="mailto:dhruvrupala1213@gmail.com"
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
-                  >
-                    dhruvrupala1213@gmail.com
-                  </a>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">
+                    {info.label}
+                  </p>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="text-sm sm:text-base text-foreground/90 hover:text-primary transition-colors font-medium break-all"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p className="text-sm sm:text-base text-foreground/90 font-medium">
+                      {info.value}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
+          ))}
 
-            <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl">
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                <div className="p-2 sm:p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1 text-sm sm:text-base">Phone</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">8401722679</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {/* Social profiles */}
+          <div className="flex gap-4 pt-2">
+            {socialProfiles.map((profile) => (
               <a
-                href="https://www.linkedin.com/in/dhruv-rupala-96191a253/"
+                key={profile.name}
+                href={profile.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:shadow-glow transition-all duration-300 flex items-center justify-center space-x-2"
+                className="flex-1 glass-card-hover p-4 rounded-2xl flex items-center justify-center space-x-3 group"
               >
-                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                <span className="text-sm sm:text-base">LinkedIn</span>
+                <profile.icon className="h-5 w-5 text-primary" />
+                <span className="text-sm sm:text-base font-medium group-hover:text-primary transition-colors">
+                  {profile.name}
+                </span>
               </a>
-              <a
-                href="https://github.com/DhruvRupala"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:shadow-glow transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <Github className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                <span className="text-sm sm:text-base">GitHub</span>
-              </a>
-            </div>
+            ))}
           </div>
+        </motion.div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 animate-scale-in">
-            <div className="glass-card p-4 sm:p-6 rounded-xl sm:rounded-2xl space-y-3 sm:space-y-4">
-              <div>
-                <Input
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-                />
-              </div>
-              <div>
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-                />
-              </div>
-              <div>
-                <Input
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="bg-background/50 text-sm sm:text-base h-10 sm:h-11"
-                />
-              </div>
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="bg-background/50 resize-none text-sm sm:text-base"
-                />
-              </div>
-              <Button type="submit" disabled={isSubmitting} className="w-full gradient-primary shadow-glow h-10 sm:h-11 text-sm sm:text-base">
-                {isSubmitting ? 'Sending...' : 'Send Message'} <Send className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-              </Button>
-            </div>
-          </form>
-        </div>
+        {/* Right: Contact Form */}
+        <motion.form
+          ref={rightRef}
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, x: 40 }}
+          animate={rightInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="glass-card p-6 sm:p-8 rounded-2xl space-y-4 border border-border/40">
+            <Input
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
+            />
+            <Input
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              className="bg-background/50 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all resize-none text-sm sm:text-base"
+            />
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full gradient-primary text-primary-foreground h-12 rounded-xl text-base font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300 disabled:opacity-50"
+            >
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Sending...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  Send Message <Send className="h-4 w-4" />
+                </span>
+              )}
+            </Button>
+          </div>
+        </motion.form>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };

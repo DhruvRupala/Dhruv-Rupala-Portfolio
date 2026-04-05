@@ -1,101 +1,135 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Award, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { SectionWrapper } from './SectionWrapper';
 
 const certificates = [
   {
-    title: 'Internship - Web Development',
+    title: 'Internship — Web Development',
     issuer: 'Zidio Development',
-    date: 'May-July 2025',
-    description: 'Comprehensive web development course covering HTML, CSS, JavaScript, and React, Node.js, Express.js, Database: MongoDB or MySQL',
+    date: 'May–July 2025',
+    description:
+      'Comprehensive web development internship covering full-stack development with HTML, CSS, JavaScript, React, Node.js, Express.js, and databases.',
     skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express.js', 'MongoDB', 'MySQL'],
     link: 'https://drive.google.com/file/d/1JrIKAPegcnZeKutdH-6NXmn8A8SknjWQ/view?usp=sharing',
   },
   {
-    title: 'Understanding Incubation and Entrepreneurship',
-    issuer: 'NPTEL',
-    date: 'Jan-Apr 2025',
-    description: 'Achieved an Elite certificate in a 12-week NPTEL course on Understanding Incubation and Entrepreneurship, offered by IIT Bombay. Attained a consolidated score of 94%, demonstrating a strong grasp of the principles of venture creation and the startup ecosystem.',
-    skills: ['Startup Incubation Processes','Understanding Business Accelerators','Networking and Mentorship','Funding and Investment Fundamentals'],
+    title: 'Understanding Incubation & Entrepreneurship',
+    issuer: 'NPTEL — IIT Bombay',
+    date: 'Jan–Apr 2025',
+    description:
+      'Achieved Elite certificate in a 12-week NPTEL course with a consolidated score of 94%, demonstrating strong understanding of startup ecosystems.',
+    skills: ['Startup Incubation', 'Business Accelerators', 'Networking & Mentorship', 'Funding Fundamentals'],
     link: 'https://drive.google.com/file/d/1Gou6NAEpAAKjazZZVLam0E1BX56aDjJ4/view?usp=sharing',
+    highlight: '94% Score',
   },
   {
     title: 'Cybersecurity Fundamentals',
-    issuer: 'IBM-SkillsBuild',
+    issuer: 'IBM SkillsBuild',
     date: '2025',
-    description: 'Introduction to cybersecurity concepts and best practices',
+    description:
+      'Introduction to cybersecurity concepts including network security, cryptography, and risk management best practices.',
     skills: ['Network Security', 'Cryptography', 'Risk Management'],
     link: 'https://drive.google.com/file/d/18fyvgSSJkQJ_Uys7nEJ6xVcFHF8wmjiv/view?usp=sharing',
   },
 ];
 
-export const Certificates = () => {
-  return (
-    <section id="certificates" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-background/50">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-10 sm:mb-12 animate-fade-in">
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <Award className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
-              Certificates
-            </h2>
-          </div>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4">
-            Professional certifications and achievements that validate my skills and expertise
-          </p>
-        </div>
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {certificates.map((cert, index) => (
-            <Card 
-              key={index} 
-              className="glass-card hover-scale group overflow-hidden border-border/50"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader className="p-4 sm:p-6">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="bg-primary/10 p-2 sm:p-3 rounded-lg flex-shrink-0">
-                    <Award className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  </div>
-                  <Badge variant="secondary" className="text-xs">
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+export const Certificates = () => {
+  const { ref, isInView } = useScrollReveal();
+
+  return (
+    <SectionWrapper
+      id="certificates"
+      title="Certificates &"
+      titleAccent="Achievements"
+      subtitle="Professional certifications validating my skills and expertise"
+    >
+      <motion.div
+        ref={ref}
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'show' : 'hidden'}
+      >
+        {certificates.map((cert) => (
+          <motion.div
+            key={cert.title}
+            variants={cardVariants}
+            className="group relative"
+          >
+            <div className="glass-card h-full p-6 rounded-2xl flex flex-col transition-all duration-500 border border-border/40 hover:border-primary/30 hover:shadow-glow shimmer">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20 flex-shrink-0">
+                  <Award className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex items-center gap-2">
+                  {cert.highlight && (
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider gradient-primary text-primary-foreground">
+                      {cert.highlight}
+                    </span>
+                  )}
+                  <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-secondary/60 text-muted-foreground border border-border/30">
                     {cert.date}
-                  </Badge>
+                  </span>
                 </div>
-                <CardTitle className="text-lg sm:text-xl mt-3 sm:mt-4 group-hover:text-primary transition-colors">
-                  {cert.title}
-                </CardTitle>
-                <CardDescription className="font-medium text-primary/80 text-sm sm:text-base">
-                  {cert.issuer}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-4 sm:p-6 pt-0">
-                <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                  {cert.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
-                  {cert.skills.map((skill, idx) => (
-                    <Badge key={idx} variant="outline" className="text-xs">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full group/btn text-xs sm:text-sm h-8 sm:h-9"
-                  asChild
-                >
-                  <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                    <span className="text-xs sm:text-sm">View Certificate</span>
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
+              </div>
+
+              {/* Title & Issuer */}
+              <h3 className="text-lg sm:text-xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+                {cert.title}
+              </h3>
+              <p className="text-sm font-semibold text-primary/70 mb-3">
+                {cert.issuer}
+              </p>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
+                {cert.description}
+              </p>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {cert.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-1 rounded-md text-xs font-medium bg-secondary/50 text-foreground/70 border border-border/30"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full h-10 rounded-xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all group/btn"
+                asChild
+              >
+                <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                  View Certificate
+                  <ExternalLink className="w-3.5 h-3.5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </SectionWrapper>
   );
 };

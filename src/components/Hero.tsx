@@ -138,7 +138,7 @@ export const Hero = () => {
                 className="h-12 px-8 text-base rounded-xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
               >
                 <a
-                  href="https://drive.google.com/file/d/1JSsFdCOJ3wJlFmgpyvwrYVi-4KqLREFS/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1BPiKa_YuSSdNTCvCGOnSWCQahb2Plgn6/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

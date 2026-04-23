@@ -93,7 +93,7 @@ export const Footer = () => {
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              dhruvrupala1213@gmail.com
+              dhruvrupala013@gmail.com
             </p>
           </div>
         </div>

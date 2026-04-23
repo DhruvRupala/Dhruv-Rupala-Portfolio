@@ -14,7 +14,7 @@ const roles = [
 const socialLinks = [
   {
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/dhruv-rupala-96191a253/',
+    href: 'https://www.linkedin.com/in/dhruvrupala/',
     label: 'LinkedIn',
   },
   {
@@ -29,7 +29,7 @@ const socialLinks = [
   },
   {
     icon: Mail,
-    href: 'mailto:dhruvrupala1213@gmail.com',
+    href: 'mailto:dhruvrupala013@gmail.com',
     label: 'Email',
   },
 ];

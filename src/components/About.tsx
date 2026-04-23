@@ -74,7 +74,7 @@ export const About = () => {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             <div className="space-y-3 text-sm sm:text-base text-foreground/80 leading-relaxed">
               <p>
-                Hey! I'm <span className="text-foreground font-semibold">Dhruv Rupala</span>, Computer Science student at{' '}
+                Hey! I'm <span className="text-foreground font-semibold">Dhruv Rupala</span>, B.Tech Computer Science student at{' '}
                 <span className="text-primary font-semibold">PDEU</span>. I love building
                 web apps using the{' '}
                 <span className="text-primary font-semibold">MERN stack</span> and turning

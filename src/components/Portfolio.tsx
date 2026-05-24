@@ -5,6 +5,16 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { SectionWrapper } from './SectionWrapper';
 
 const projects = [
+    {
+    title: 'University Sports Management Platform',
+    description:
+      'A comprehensive MERN stack platform for managing university sports tournaments, featuring role-based administrative dashboards, live match scheduling, and seamless student registrations.',
+    technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Recharts'],
+    category: 'Full-Stack',
+    github: 'https://github.com/DhruvRupala/PDEU-Sport-Management-App', 
+    demo: 'https://pdeusport.vercel.app', 
+     },
+
   {
     title: 'Web Application Security Testing Platform',
     description:
@@ -32,15 +42,6 @@ const projects = [
     category: 'Full-Stack',
     github: 'https://github.com/DhruvRupala/Simple-Blogg-App',
     demo: 'https://github.com/DhruvRupala/Simple-Blogg-App',
-  },
-  {
-    title: 'ESports Tournament Registration Platform',
-    description:
-      'A complete management system for ESports tournaments, handling player registration, match tracking, and prize distribution via a robust backend.',
-    technologies: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'TailwindCSS'],
-    category: 'Full-Stack',
-    github: 'https://github.com/DhruvRupala',
-    demo: 'https://github.com/DhruvRupala',
   },
 ];
 

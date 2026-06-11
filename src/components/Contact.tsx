@@ -1,13 +1,8 @@
-import { Mail, Phone, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, MapPin, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { SectionWrapper } from './SectionWrapper';
-import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
@@ -44,64 +39,15 @@ const socialProfiles = [
 ];
 
 export const Contact = () => {
-  const { toast } = useToast();
   const { ref: leftRef, isInView: leftInView } = useScrollReveal();
   const { ref: rightRef, isInView: rightInView } = useScrollReveal();
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-
-      toast({
-        title: '✅ Message Sent!',
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <SectionWrapper
       id="contact"
       title="Get In"
       titleAccent="Touch"
-      subtitle="Have a project in mind? Let's work together to bring your ideas to life"
+      subtitle="Let's connect and build something amazing together"
       showBackground
     >
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 max-w-6xl mx-auto">
@@ -162,67 +108,36 @@ export const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Right: Contact Form */}
-        <motion.form
+        {/* Right: Download Resume */}
+        <motion.div
           ref={rightRef}
-          onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 40 }}
           animate={rightInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7 }}
+          className="flex items-center justify-center h-full"
         >
-          <div className="glass-card p-6 sm:p-8 rounded-2xl space-y-4 border border-border/40">
-            <Input
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
-            />
-            <Input
-              name="email"
-              type="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
-            />
-            <Input
-              name="subject"
-              placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="bg-background/50 h-12 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all text-sm sm:text-base"
-            />
-            <Textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="bg-background/50 rounded-xl border-border/40 focus:border-primary/50 focus:ring-primary/20 transition-all resize-none text-sm sm:text-base"
-            />
+          <div className="glass-card p-8 sm:p-12 rounded-2xl w-full border border-border/40 flex flex-col items-center text-center space-y-6 h-full justify-center">
+            <div className="h-20 w-20 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+              <Download className="h-10 w-10 text-primary" />
+            </div>
+            <div className="space-y-3">
+              <h3 className="text-2xl font-bold">Resume</h3>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-sm">
+                Want to know more about my experience and skills? Download my resume below.
+              </p>
+            </div>
             <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full gradient-primary text-primary-foreground h-12 rounded-xl text-base font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300 disabled:opacity-50"
+              asChild
+              className="w-full sm:w-auto px-8 gradient-primary text-primary-foreground h-12 rounded-xl text-base font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300 mt-4"
             >
-              {isSubmitting ? (
+              <a href="https://drive.google.com/file/d/1BcZugu3CJX5IGbryqSQMH8iyuGQGrm39/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <span className="flex items-center gap-2">
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Sending...
+                  Download Resume <Download className="h-4 w-4" />
                 </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  Send Message <Send className="h-4 w-4" />
-                </span>
-              )}
+              </a>
             </Button>
           </div>
-        </motion.form>
+        </motion.div>
       </div>
     </SectionWrapper>
   );

@@ -8,8 +8,8 @@ const projects = [
     {
     title: 'University Sports Management Platform',
     description:
-      'Developed a web platform for managing university sports tournaments and student registrations.'
-      'Implemented role-based access for Admins, Managers, and Students with secure authentication.'
+      'Developed a web platform for managing university sports tournaments and student registrations.',
+      'Implemented role-based access for Admins, Managers, and Students with secure authentication.',
       'Built dashboards for event scheduling, team management, and result tracking.',
     technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Recharts'],
     category: 'Full-Stack',

@@ -8,9 +8,7 @@ const projects = [
     {
     title: 'University Sports Management Platform',
     description:
-      'Developed a web platform for managing university sports tournaments and student registrations.',
-      'Implemented role-based access for Admins, Managers, and Students with secure authentication.',
-      'Built dashboards for event scheduling, team management, and result tracking.',
+        'A full-stack web application for managing university sports tournaments, registrations, scheduling, and result tracking through role-based dashboards.',
     technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Recharts'],
     category: 'Full-Stack',
     github: 'https://github.com/DhruvRupala/PDEU-Sport-Management-App', 
@@ -20,7 +18,7 @@ const projects = [
   {
     title: 'Web Application Security Testing Platform',
     description:
-      'A MERN & Python-based security testing platform featuring a custom vulnerability scanning engine, real-time admin dashboard, and secure role-based access.',
+        'Built a security testing platform that automates vulnerability scanning and analysis using Python-based scanning modules integrated with a MERN stack application.',
     technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Python', 'JWT'],
     category: 'Cybersecurity',
     github: 'https://github.com/DhruvRupala/W.A.S.T---Web-Application-Security-Testing',
@@ -30,7 +28,7 @@ const projects = [
   {
     title: 'Excel Analytics App',
     description:
-      'A MERN-stack web application that transforms uploaded Excel spreadsheets into instant, interactive charts and meaningful data insights.',
+    'Created a data analytics platform that transforms Excel spreadsheets into interactive charts and visual insights for faster data-driven decision making.',
     technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Chart.js'],
     category: 'Full-Stack',
     github: 'https://github.com/DhruvRupala/Excel-Analytics-App',

@@ -130,7 +130,7 @@ export const Contact = () => {
               asChild
               className="w-full sm:w-auto px-8 gradient-primary text-primary-foreground h-12 rounded-xl text-base font-semibold shadow-glow hover:shadow-glow-strong transition-all duration-300 mt-4"
             >
-              <a href="https://drive.google.com/file/d/1exP7w3gKknva18CSn-wj_E53vNQx6J0c/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/15qOGfkM_lEOvjFrfhY0h83Sy5NeDxxjg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <span className="flex items-center gap-2">
                   Download Resume <Download className="h-4 w-4" />
                 </span>

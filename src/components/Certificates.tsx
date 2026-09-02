@@ -21,7 +21,7 @@ const certificates = [
     description:
       'Achieved Elite certificate in a 12-week NPTEL course with a consolidated score of 94%, demonstrating strong understanding of startup ecosystems.',
     skills: ['Startup Incubation', 'Business Accelerators', 'Networking & Mentorship', 'Funding Fundamentals'],
-    link: 'https://drive.google.com/file/d/1Gou6NAEpAAKjazZZVLam0E1BX56aDjJ4/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1bRi157KYfLLh5WNPWgmOf_VG8aHIprt4/view?usp=sharing',
     highlight: '94% Score',
   },
   {

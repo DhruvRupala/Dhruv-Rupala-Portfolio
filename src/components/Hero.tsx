@@ -115,7 +115,7 @@ export const Hero = () => {
               variants={fadeUp}
               className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mx-auto lg:mx-0"
             >
-B.Tech Computer Science graduate with a strong interest in building modern, AI-powered web applications and practical technology solutions. Passionate about full-stack development, emerging technologies, cybersecurity, and leveraging technology to solve real-world problems.            </motion.p>
+  I’m a B.Tech Computer Science graduate interested in building useful web applications and AI-powered solutions. I enjoy working with full-stack technologies, exploring new tools, and learning about cybersecurity. I’m always looking for opportunities to apply what I know, work on real-world problems, and keep improving as a developer.         </motion.p>
 
             <motion.div
               variants={fadeUp}
